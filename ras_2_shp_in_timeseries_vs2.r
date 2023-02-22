@@ -69,7 +69,8 @@ ras_2_shp_in_timeseries = function(mainPath, aoiShp, listrawRas, dates, flagwrit
   
   opDat = do.call(rbind, outputs)
   opDat = data.frame(dates = dates,
-                     opDat)
+                     val = round(opDat,2))
+  
   
   opPath = paste(processedPath, '/',outputName,'_arealts.csv', sep = '')
   write.csv(opDat, opPath,row.names = F)
